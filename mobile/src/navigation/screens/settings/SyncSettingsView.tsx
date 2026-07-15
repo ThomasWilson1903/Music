@@ -18,7 +18,9 @@ function normalizeUrl(url: string): string {
 export default function SyncSettings() {
   const serverBaseUrl = useSyncStore((s) => s.serverBaseUrl);
   const knownServerUrls = useSyncStore((s) => s.knownServerUrls);
+  const downloadPath = useSyncStore((s) => s.downloadPath);
   const [draftUrl, setDraftUrl] = useState(serverBaseUrl);
+  const [draftPath, setDraftPath] = useState(downloadPath);
 
   const handleSave = () => {
     const normalized = normalizeUrl(draftUrl);
@@ -32,6 +34,12 @@ export default function SyncSettings() {
       serverBaseUrl: normalized,
       knownServerUrls: known,
     });
+  };
+
+  const handleSavePath = () => {
+    const trimmed = draftPath.trim();
+    if (!trimmed) return;
+    syncStore.setState({ downloadPath: trimmed });
   };
 
   const handleSelect = (url: string) => {
@@ -77,6 +85,36 @@ export default function SyncSettings() {
             labelText="Сохранить сервер"
             onPress={handleSave}
             disabled={!draftUrl.trim()}
+          />
+        </View>
+      </SegmentedList.CustomItem>
+
+      <SegmentedList.CustomItem>
+        <View className="gap-4 p-4">
+          <View className="gap-2">
+            <Text className="font-medium text-onSurface">
+              Путь для скачивания
+            </Text>
+            <Text className="text-sm text-onSurfaceVariant">
+              {downloadPath
+                ? `Сейчас: ${downloadPath}`
+                : "Путь не указан"}
+            </Text>
+          </View>
+
+          <TextInput
+            value={draftPath}
+            onChangeText={setDraftPath}
+            placeholder="Music/Twilson"
+            autoCapitalize="none"
+            autoCorrect={false}
+            className="rounded-md bg-surfaceContainerHigh px-4 py-3 text-onSurface"
+          />
+
+          <SegmentedList.Item
+            labelText="Сохранить путь"
+            onPress={handleSavePath}
+            disabled={!draftPath.trim()}
           />
         </View>
       </SegmentedList.CustomItem>

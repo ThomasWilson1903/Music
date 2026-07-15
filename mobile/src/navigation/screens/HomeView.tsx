@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import { useTranslation } from "react-i18next";
-import { View } from "react-native";
+import { Text, View } from "react-native";
 
 import { useFavoriteListsForCards } from "~/data/favorite/queries";
 
@@ -15,7 +15,7 @@ import { useSync } from "~/modules/sync/hooks/useSync";
 export default function Home() {
   const { t } = useTranslation();
   const navigation = useNavigation();
-  const { syncing, startSync } = useSync();
+  const { syncing, status, startSync } = useSync();
 
   return (
     <NScrollLayout
@@ -36,7 +36,14 @@ export default function Home() {
         </View>
       }
     >
-      <TEm textKey="term.favorites" className="-mb-4" />
+      <View className="gap-2">
+        {status && (
+          <Text className="px-4 text-xs text-onSurfaceVariant">
+            {status}
+          </Text>
+        )}
+        <TEm textKey="term.favorites" className="-mb-4" />
+      </View>
       <Favorites />
     </NScrollLayout>
   );

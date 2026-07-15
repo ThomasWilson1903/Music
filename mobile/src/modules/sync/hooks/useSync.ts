@@ -1,4 +1,4 @@
-import * as MediaLibrary from "expo-media-library";
+import * as MediaLibrary from "expo-media-library/legacy";
 
 import { performSync } from "../SyncManager";
 import { syncStore, useSyncStore } from "../store";
@@ -8,6 +8,7 @@ export function useSync() {
   const status = useSyncStore((s) => s.status);
   const serverBaseUrl = useSyncStore((s) => s.serverBaseUrl);
   const lastSyncTime = useSyncStore((s) => s.lastSyncTime);
+  const downloadPath = useSyncStore((s) => s.downloadPath);
 
   const startSync = async () => {
     if (syncing) return;
@@ -22,7 +23,7 @@ export function useSync() {
     syncStore.setState({ syncing: true });
 
     try {
-      const downloaded = await performSync(serverBaseUrl, (text) => {
+      const downloaded = await performSync(serverBaseUrl, downloadPath, (text) => {
         syncStore.setState({ status: text });
       });
 

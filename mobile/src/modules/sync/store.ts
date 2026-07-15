@@ -8,6 +8,7 @@ export interface SyncStore {
   lastSyncTime: number;
   status: string;
   syncing: boolean;
+  downloadPath: string;
 }
 
 export const syncStore = createPersistedStore<SyncStore>(
@@ -17,9 +18,16 @@ export const syncStore = createPersistedStore<SyncStore>(
     lastSyncTime: 0,
     status: "Нажмите кнопку синхронизации",
     syncing: false,
+    downloadPath: "Music/Twilson",
   }),
   {
     name: "music::sync",
+    partialize: (state) => ({
+      serverBaseUrl: state.serverBaseUrl,
+      knownServerUrls: state.knownServerUrls,
+      lastSyncTime: state.lastSyncTime,
+      downloadPath: state.downloadPath,
+    }),
   },
 );
 
