@@ -1,5 +1,5 @@
 <resources>
-  <string name="app_name" translatable="false">Music</string>
+  <string name="app_name" translatable="false">Music twilson</string>
   <string name="widget_artworkplayer_name">🧪 Artwork Player</string>
   <string name="widget_artworkplayer_description">[Experimental] Displays track artwork and allows for play/pause.</string>
   <string name="widget_nowplaying_name">🧪 Now Playing</string>
