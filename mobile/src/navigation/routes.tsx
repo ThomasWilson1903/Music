@@ -41,6 +41,7 @@ import PackageLicense from "./screens/settings/PackageLicenseView";
 import PlaybackSettings from "./screens/settings/PlaybackSettingsView";
 import SaveErrors from "./screens/settings/SaveErrorsView";
 import ScanningSettings from "./screens/settings/ScanningSettingsView";
+import SyncSettings from "./screens/settings/SyncSettingsView";
 import ThirdParty from "./screens/settings/ThirdPartyView";
 import Settings from "./screens/settings/View";
 import ModifyTrack from "./screens/tracks/ModifyView";
@@ -341,6 +342,10 @@ export const RootStack = createNativeStackNavigator({
         ScanningSettings: {
           screen: ScanningSettings,
           options: { title: "feat.scanning.title" },
+        },
+        SyncSettings: {
+          screen: SyncSettings,
+          options: { title: "feat.sync.title" },
         },
         ExperimentalSettings: {
           screen: ExperimentalSettings,

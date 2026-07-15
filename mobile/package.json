@@ -1,9 +1,9 @@
 {
-  "name": "music",
+  "name": "music-twilson",
   "private": true,
   "main": "index.ts",
   "version": "3.3.0",
-  "description": "A Nothing inspired music player.",
+  "description": "Music Twilson - A Nothing inspired music player.",
   "license": "AGPL-3.0-only",
   "repository": {
     "type": "git",
@@ -47,6 +47,7 @@
     "expo-image-manipulator": "56.0.19",
     "expo-image-picker": "56.0.18",
     "expo-linear-gradient": "56.0.4",
+    "expo-media-library": "^57.0.1",
     "expo-sqlite": "56.0.5",
     "i18next": "26.3.1",
     "intl-pluralrules": "2.0.1",

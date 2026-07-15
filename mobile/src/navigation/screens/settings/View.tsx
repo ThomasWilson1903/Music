@@ -75,6 +75,14 @@ export default function Settings() {
         </SegmentedList>
         <SegmentedList>
           <SegmentedList.Item
+            labelTextKey="feat.sync.title"
+            onPress={() => navigation.navigate("SyncSettings")}
+            LeftElement={<Icon name="cached" />}
+            className="gap-4"
+          />
+        </SegmentedList>
+        <SegmentedList>
+          <SegmentedList.Item
             labelTextKey="feat.audioEffects.title"
             onPress={() => navigation.navigate("AudioEffects", {})}
             LeftElement={<Icon name="graphic-eq" />}

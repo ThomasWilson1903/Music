@@ -379,6 +379,11 @@
       "brief": "What makes this app possible."
     },
 
+    "sync": {
+      "title": "Music Sync",
+      "brief": "Sync music from your MinIO server."
+    },
+
     "onboarding": {
       "extra": {
         "configureSettings": "Configure Settings",

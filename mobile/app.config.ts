@@ -19,9 +19,9 @@ export default (): ExpoConfig => {
   }
 
   return {
-    name: "Music",
-    slug: "Music",
-    description: "A Nothing inspired music player.",
+    name: "Music Twilson",
+    slug: "MusicTwilson",
+    description: "Music Twilson - A Nothing inspired music player.",
     version: "3.3.0",
     platforms: ["android"],
     githubUrl: "https://github.com/MissingCore/Music",
@@ -96,6 +96,15 @@ export default (): ExpoConfig => {
         ],
       }),
       imagePickerPlugin({ microphonePermission: false }),
+      [
+        "expo-media-library",
+        {
+          photosPermission: "Allow $(PRODUCT_NAME) to access your media library.",
+          savePhotosPermission:
+            "Allow $(PRODUCT_NAME) to save music files to your device.",
+          isAccessMediaLocationEnabled: true,
+        },
+      ],
       bootsplashPlugin({
         logo: `./assets/${BUILD_THEME}/splash-icon.png`,
         background: BACKGROUND_COLOR,
